@@ -1,66 +1,12 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0f0f0f" />
-  <title>Skincare Flow – Mobile</title>
-
-  <!-- Dark-Mode-Klasse VOR dem Rendern setzen (gegen weißes Blitzen) -->
-  <script>
-  (function () {
-    try {
-      const saved = localStorage.getItem("skf-theme");
-      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-      if (saved === "dark" || (!saved && prefersDark)) {
-        document.documentElement.classList.add("dark");
-      }
-    } catch(_) {}
-  })();
-  </script>
-
-  <!-- Tailwind (CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: "class" };
-  </script>
-
-  <!-- React + ReactDOM (UMD, production) -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-
-  <!-- Babel Standalone für JSX im Browser -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-  <style>
-    html, body { height: 100%; }
-    body { -webkit-tap-highlight-color: transparent; }
-  </style>
-</head>
-<body class="bg-gray-50 dark:bg-[#0f0f0f]">
-  <div id="root"></div>
-
-  <!-- DEIN APP-CODE: JSX mit Babel kompilieren lassen -->
-  <script type="text/babel" data-presets="react">
-    const { useMemo, useState, useEffect, useRef } = React;
-
-    // … HIER deinen App-Code einfügen (die Dark-Mode-Version, die wir im Canvas haben) …
-    // Tipp: Nimm exakt die letzte Dark-Mode-App aus dem Canvas und füge sie hier ein.
-    // Unten nur Minimalplatzhalter, damit es nicht weiß bleibt:
-
-    function App() {
-      return (
-        <div className="min-h-screen text-gray-900 dark:text-gray-100 bg-gradient-to-b from-gray-50 to-white dark:from-[#0f0f0f] dark:to-[#111] flex items-center justify-center p-6">
-          <div className="rounded-2xl border border-gray-200 dark:border-[#2a2a2a] bg-white dark:bg-[#1a1a1a] p-6 shadow-sm">
-            <h1 className="text-2xl font-bold">Skincare Flow 💧</h1>
-            <p className="mt-2 text-gray-600 dark:text-gray-300">CDN-Version läuft.</p>
-          </div>
-        </div>
-      );
-    }
-
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<App />);
-  </script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skincare Flow</title>
+  </head>
+  <body class="bg-gray-50">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
